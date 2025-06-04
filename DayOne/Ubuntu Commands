@@ -1,0 +1,25 @@
+# DOCKER DAY ONE 
+* Ubuntu Server
+Launch an Instance in Ubuntu
+Connect the instance (ssh)
+
+1. sudo apt-get update //update packeges
+2. sudo apt-get install docker.io -y  // install docker
+3. sudo systemctl docker start // start docker
+4. sudo service docker status  //check status
+4. sudo systemctl status docker.service // check status
+5. sudo su //become the super user
+6. docker search nginx // search for image in docker
+7. docker pull nginx //pull nginx image
+8. docker image ls //to check list of images
+9. docker run [image name or image id] // run docker in forgraund
+10. exit // stop running docker
+11. docker ps -a // list of container
+12. docker run -d --name containerName nginx [nginx becuase we are using it] // create and name container
+13. docker exec -it <containerId> or <containerName> /bin/bash  // execute container
+14. cd /usr/share/nginx/html  //go to html directory
+15. curl ://localhost  //run html page
+16. apt update  //update apt in html directory
+17. apt install nano  //install nano in html directory
+18. nano hello.html  //create html page [other than index.html] 
+19. curl localhost/hello.html  //execute html page
