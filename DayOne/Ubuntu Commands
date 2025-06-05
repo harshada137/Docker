@@ -22,4 +22,9 @@ Connect the instance (ssh)
 16. apt update  //update apt in html directory
 17. apt install nano  //install nano in html directory
 18. nano hello.html  //create html page [other than index.html] 
-19. curl localhost/hello.html  //execute html page
+19. curl localhost/hello.html  //execute html page [Foreground]
+
+** To Run In Background **
+1.   docker run -d --name mynginx -p 80:80 nginx
+
+
