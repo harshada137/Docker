@@ -1,0 +1,38 @@
+## Docker Day Two ##
+
+* To see list of running containers
+1. docker ps
+2. docker container ps
+
+* To see list of all containers
+1. docker ps -a
+2. docker container ps -a
+
+* to search Image
+1. docker search ImageName
+
+* To pull Image 
+1. docker pull imgName
+
+* To create Container
+1. docker run <imgId> or <imgName>
+
+**Task**
+- Create a container change the port number of host to 8080, create an html page and run it in foreground as well as background
+
+1. sudo su //became the sudo user
+2. docker run -d --name my-cont -p 8080:80 //create and run container with port number 8080
+3. add port number to security group in ec2
+4. docker exec -it <imgId> or <imgName> //execute docker
+5. cd /usr/share/nginx/html //go to html directory
+6. apt update //update apt
+7. apt install nano //install nano
+8. nano page.html // create html page
+9. curl localhost/page.html //run html page using curl command
+10. copy paste your public IP in browser and add port number [e.g. 0.0.0.0:8080/page.html] 
+11. your page must be visible
+
+* To stop multiple containers
+1. docker stop <containerOneId> or <containerOneName> <containerTwoId> <containerThreeId>
+2. docker stop $( docker ps -a)
+
