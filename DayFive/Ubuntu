@@ -1,0 +1,47 @@
+Day 5 :
+1. Delete all containers and Image [use -f to stop or delete forcefully]
+2. docker run -d --name (myapp){container-name} -p 80:80 nginx [create and run container]
+3. docker exec -it myapp bin/bash [execute the container] 
+4. create html page
+5. run html page [use curl and IP both]
+
+
+## This Is'nt Working ## 
+
+| Step | Command                                                                                                |
+| ---- | ------------------------------------------------------------------------------------------------------ |
+| 6    | docker export myapp -o myapp.tar                                                                       |
+| 7    | ls [check if file is there or not]                                                                     |
+| 8    | ls -l myapp.tar                                                                                        |
+| 9    | docker import myapp.tar newapp{new-name}                                                               |
+| 10   | docker history newapp [to check layers]                                                                |
+| 11   | docker image ls [list of images]                                                                       |
+| 12   | docker run -d --name new-cont -p 8080:80 newapp bin/bash [create new container from imported image]    |
+| 13   | docker container start newapp                                                                          |
+| 14   | docker run -d -it -p 8080:80 newapp bin/bash                                                           |
+
+
+***Export Command Only Create Snapshot****
+
+
+## SAVE AND LOAD ##
+
+15. docker commit myapp{container-name} appimg{{image-name}
+16. docker image ls //check list
+17. docker save -o myfile.tar appimg //save file 
+18. ls //check list of saved files
+19. docker container ls -a //check containers
+20. docker container stop $(docker ps -aq) // stop all containers
+21. docker container ls -a // check if containres are stoped
+22. docker container prune // remove all containers
+23. ls 
+24. docker images 
+25. docker rmi $(docker images -q) //remove all images
+26. docker images
+27. docker images
+28. docker container ls -a
+29. docker load -i myfile.tar{tar file name}
+30. docker run -d -p 8080:80 --name myapp appimg
+31. docker container ls -a
+32. hit IP on browser with port number
+
