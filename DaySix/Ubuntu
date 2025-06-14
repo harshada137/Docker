@@ -1,0 +1,38 @@
+Day 6:-
+
+## DOCKER HUB ##
+1. Docker image ls [You must have one image]
+2. docker tag imageName Docker-hub-profile-name/new-image-name:version
+3. Docker image ls [new image will be created]
+4. docker login -u dh-username [hit enter and on the space of password paste your tocken]
+5. docker push dh-profile-name/image-name:virsion [if you dont wnat to give version it will create "latest" by default]
+   [refresh browser your image will be there]
+6. docker image ls [new image created]
+7. docker rmi image-name:virsion [remove the image from local devce to pull the same image]
+8. docker pull image-name:virsion [image pull from docker hub]
+
+## ECR {Elastic Container Registry} ##
+1. Open ECR
+2. Create new Repo
+3. --click on view push command
+4. ssh
+5. aws --version [check if aws is installed or not]
+6. apt update
+7. install unzip [to unzip aws cli]
+8. curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" unzip awscliv2.zip
+9. ./aws/install
+
+**Create Access Key and Secrete Key** 
+A. Go to aws account
+B. Go to Profile -- select security credentials
+C. go to Access key and Secrete Key
+
+10. aws confige [this command ask for access key and secrete key]
+11. docker image ls
+12. go to ECR copy first command {for login}
+13. take tag image command from ECR [change image name only]
+14. take push image 
+15. take pull image
+
+
+
