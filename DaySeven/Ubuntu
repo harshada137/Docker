@@ -1,0 +1,36 @@
+Day 7:
+
+## TO SET UP MY SQL ##
+
+1. Sudo su [become sudo user]
+2. Remove all images and container if any 
+3. docker image ls
+4. docker container ps -a
+5. docker run -d --name mydbcont -e MYSQL_ROOT_PASSWORD=Pass@123 -e MYSQL_DATABASE=wordpressdb MySQL
+   [ mydbcont (container name), Pass@123 (Password), wordpressdb (database name)]
+6. docker container ls [list all container]
+7. docker exec -it mydbcont bin/bash [execute container]
+8. MySQL -u root -p [login into your database]
+9. enter password 
+10. show databases [db query]
+11. use wordpressdb [db query]
+12. show tables [db query]
+13. exit [db query]
+
+
+## TO SETUP WORDPRESS ENVIRONMENT ##	
+1. docker run -d --name wordpress_cont -p 80:80 -e WORDPRESS_DB_HOST=mydbcont -e WORDPRESS_DB_USER=root -e WORDPRESS_DB_PASSWORD=Pass@123 -e WORDPRESS_DB_NAME=wordpressdb --link mydbcont:mysql wordpress 
+  [ wordpress_cont (container name), 80:80(port number), mydbcont(name of MySQL container), root(user name), Pass@123(password), wordpressdb(DB name)]
+
+2. docker container ls [check list]
+3. Hit IP on browser [wordpress page will be open]
+4. set username and password 
+5. login to your wordpress 
+6. create site of your own 
+7. comment on that website 
+9. login to your database
+10. use wordpressdb [db query]
+11. show tables [db query]
+12. select * from wp_comments [db query]
+13. you can see your comment here
+

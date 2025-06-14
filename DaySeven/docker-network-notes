@@ -1,0 +1,88 @@
+### 🔗 What is Docker Network?
+
+A **Docker network** is a way to allow containers to communicate with each other, the Docker host, and the outside world (internet or other systems). Networking in Docker ensures containers can exchange data securely and efficiently — whether they’re on the same host or different machines.
+
+---
+
+## 🧠 Why is Docker Networking Important?
+
+* Containers are **isolated by default**.
+* To allow interaction (e.g., a frontend container calling a backend API container), a **network bridge** is required.
+* Ensures **security, scalability, and manageability** of communication.
+
+---
+
+## 🧰 Types of Docker Networks
+
+### 1. **Bridge Network** (Default for standalone containers)
+* Default network when you run a container without specifying `--network`.
+* Containers on the same bridge network can talk to each other using container names.
+
+📌 Use case: Standalone container apps on a single host.
+
+---
+
+### 2. **Host Network**
+* Container shares the **host's network stack** (no isolation).
+* No port mapping required (`-p` becomes ineffective).
+
+📌 Use case: High-performance scenarios (like real-time apps), but less isolation.
+
+---
+
+### 3. **None Network**
+* No network interfaces.
+* Useful for security or testing isolated environments.
+
+📌 Use case: Complete network isolation.
+
+---
+
+### 4. **Overlay Network**
+* Used in *Docker Swarm* or multi-host setups.
+* Allows containers across different Docker hosts to communicate securely.
+
+📌 Use case: Scalable microservices in a distributed environment.
+
+---
+
+### 5. **Macvlan Network**
+* Assigns a *MAC address* to a container, making it look like a physical device on the network.
+* Allows container to appear directly on the network like a regular system.
+
+📌 Use case: When containers need to be directly accessible from the physical network.
+
+---
+
+## 🛠️ Docker Network Commands
+
+| Command                                       | Description                       |
+| --------------------------------------------- | --------------------------------- |
+| `docker network ls`                           | List all networks                 |
+| `docker network inspect <network-name>`       | Detailed info about a network     |
+| `docker network create <options>`             | Create a custom network           |
+| `docker network connect <net> <container>`    | Connect container to a network    |
+| `docker network disconnect <net> <container>` | Disconnect container from network |
+
+---
+
+## ✅ Container Communication Rules
+
+| Network Type | Can Talk to Host | Can Talk to Other Containers |
+| ------------ | ---------------- | ---------------------------- |
+| Bridge       | Yes              | Only in same bridge network  |
+| Host         | Yes              | Yes (on host network)        |
+| None         | No               | No                           |
+| Overlay      | Yes              | Yes (across hosts)           |
+| Macvlan      | Yes              | Yes (directly on LAN)        |
+
+---
+
+
+## 📦 Summary
+
+* Docker networking allows containers to *talk to each other, the host, or the internet*.
+* It supports *multiple networking drivers*: bridge, host, overlay, etc.
+* *Bridge network* is most commonly used in simple projects.
+* Use *Overlay* for distributed systems, and *Host/Macvlan* for performance-sensitive cases.
+
