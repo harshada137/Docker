@@ -4,11 +4,11 @@ A **Docker network** is a way to allow containers to communicate with each other
 
 ---
 
-## 🧠 Why is Docker Networking Important?
+📦 Why is Docker Networking Important?
+- Enables communication between containers (e.g., a web app container connecting to a database container).
+- Controls isolation and security between containers.
+- Helps organize services in microservice architectures.
 
-* Containers are **isolated by default**.
-* To allow interaction (e.g., a frontend container calling a backend API container), a **network bridge** is required.
-* Ensures **security, scalability, and manageability** of communication.
 
 ---
 
@@ -77,6 +77,16 @@ A **Docker network** is a way to allow containers to communicate with each other
 | Macvlan      | Yes              | Yes (directly on LAN)        |
 
 ---
+
+
+| Network Type | Use Case             | Isolation | Can Communicate with Host | Multi-Host   |
+| ------------ | -------------------- | --------- | ------------------------- | ----------   |
+| **bridge**   | Default, local setup | Yes       | Via port mapping          | ❌          |
+| **host**     | High-performance     | No        | Yes (shares host)         | ❌          |
+| **none**     | Fully isolated       | Yes       | No                        | ❌          |
+| **overlay**  | Multi-host networks  | Yes       | Yes                       | ✅          |
+| **macvlan**  | Direct LAN access    | Yes       | Yes                       | ❌          |
+
 
 
 ## 📦 Summary
