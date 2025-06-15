@@ -1,0 +1,31 @@
+DAY 8 :-
+## DOCKER NETWORK CREATION ##
+1. docker network create frontend [creating a network named frontend] [driver is default i.e. bridge]
+
+2. docker network create backend --driver bridge [creating a network named backend] [we have mension the driver here]
+
+3. docker network ls [network list
+
+4. docker run -d --name myweb -p 80:80 --network frontend nginx
+   [ myweb = container name, 80:80 = port number, frontend = network name, nginx = image name]
+
+5. docker container inspect myweb [inspect the container]
+
+6. docker run -d -p 9000 --name myapp php:8.3-fpm --network frontend [create app  container in php]
+
+7. docker connect backend myapp [connecting php container to both networks]
+
+8. docker run -d --name mydb -p 3306 --network backend -e MYSQL_ROOT_PASSWORD=Pass@123 MySQL [creating MySQL container] [you can change your password]
+
+   ** inspect both your networks, you must see two containers in each network **
+   [frontend network = myweb & myapp; backend network = myapp & mydb]
+   
+   ** copy paste your public IP of server in browser You must see nginx(index.html) Page **
+
+9. docker exec -it myapp bin/bash
+ 
+10. curl 0.0.0.0 [IP of app server we get after inspecting the page]
+
+** You must see nginx page **
+
+11. docker rm network <network name>
