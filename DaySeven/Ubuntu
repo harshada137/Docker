@@ -34,3 +34,15 @@ Day 7:
 12. select * from wp_comments [db query]
 13. you can see your comment here
 
+
+
+## DOCKER NETWORK ##
+1. docker container inspect <container_name> or <container_Id> [command to inspet any container]
+2. docker network ls [to chech list of its network, you can also inspect networks]
+3. remove all image and containers
+4. docker run -d --name mycount -p 80:80 --network host nginx [here we are specifying the host network so port mapping is not needed]
+5. docker container inspect mycount [you cant find the publick ip for this container]
+6. Hit he publick ip on browser you can see index.html page
+
+
+
