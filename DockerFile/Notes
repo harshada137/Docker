@@ -1,0 +1,55 @@
+
+# What is Docker File ?
+A Dockerfile is a text file that contains a set of instructions used to create a Docker image. This image can then be used to run containers. It automates the process of setting up an environment with all the necessary dependencies, configurations, and files.
+
+🔹 What Is a Dockerfile?
+A Dockerfile is a script composed of various commands and arguments listed successively to automatically perform actions on a base image to create a new Docker image.
+
+Think of it like a recipe that Docker reads to build your custom image.
+
+🔹 Why Is Dockerfile Important?
+Automation: No need to manually configure environments.
+
+Consistency: Same image runs across all environments (dev, test, prod).
+
+Portability: Docker images can run on any system that has Docker installed.
+
+Version Control: Dockerfiles can be stored in Git to track changes.
+
+🔹 Basic Structure of a Dockerfile
+
+    # Step 1: Choose a base image
+    FROM node:18
+
+    # Step 2: Set working directory
+    WORKDIR /app
+
+    # Step 3: Copy application files
+    COPY . .
+
+    # Step 4: Install dependencies
+    RUN npm install
+
+    # Step 5: Expose a port (optional)
+    EXPOSE 3000
+
+    # Step 6: Command to run the app
+    CMD ["node", "index.js"]
+ 
+
+ 
+🔹 Common Dockerfile Instructions
+
+| Instruction  | Purpose                                                     |
+| ------------ | ----------------------------------------------------------- |
+| `FROM`       | Specifies the base image (e.g., `ubuntu`, `node`, `python`) |
+| `WORKDIR`    | Sets the working directory inside the container             |
+| `COPY`       | Copies files from local system to the container             |
+| `RUN`        | Executes a command (e.g., installing packages)              |
+| `CMD`        | Default command to run when container starts                |
+| `EXPOSE`     | Informs Docker which port the container listens on          |
+| `ENV`        | Sets environment variables                                  |
+| `ADD`        | Like COPY, but can also extract archives and download URLs  |
+| `ENTRYPOINT` | Configures a container to run as an executable              |
+
+
