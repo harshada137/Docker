@@ -1,0 +1,77 @@
+
+## 🧱 1. **Bind Mounts**
+### 🔹 Description:
+* Bind mounts use **existing folders** on your **host system**.
+* You specify the full **host path** and mount it into the container.
+
+🔹 Syntax:
+docker run -v /host/path:/container/path myimage
+
+🔹 Example:
+docker run -v /home/user/data:/app/data ubuntu
+
+🔹 Features:
+* Full access to host file system from the container.
+* Changes in container reflect on host and vice versa.
+* Can be used for **local development** (auto-reload).
+
+🔹 Use Case:
+* Mounting local source code into a container.
+* Sharing logs or configs with the host.
+
+---
+
+## 📦 2. **Volumes** (Managed by Docker)
+
+### 🔹 Description:
+* Volumes are managed by Docker and stored in Docker’s storage directory (like `/var/lib/docker/volumes`).
+* You **don’t need to know or create the host path**.
+
+🔹 Syntax:
+docker volume create myvolume
+docker run -v myvolume:/app/data myimage
+
+🔹 Example:
+docker run -v mydata:/app ubuntu
+
+🔹 Features:
+* Safe, portable, and easy to back up.
+* Not tied to the host’s filesystem layout.
+* Better performance on Linux and more control.
+
+🔹 Use Case:
+* Storing persistent database data.
+* Shared storage across multiple containers.
+
+## 🧠 3. **Tmpfs Mounts** (In-Memory)
+🔹 Description:
+* Tmpfs mounts store data in **memory only**, not on disk.
+* Data is lost when the container stops or restarts.
+
+🔹 Syntax:
+docker run --tmpfs /app/tmp:rw,size=100m ubuntu
+
+🔹 Example:
+docker run --tmpfs /tmpfs ubuntu
+
+🔹 Features:
+* Fastest because it’s in RAM.
+* Very secure – not written to disk.
+* Data disappears on container stop.
+
+🔹 Use Case:
+* Temporary storage like sessions or caching.
+* Sensitive data you don’t want saved on disk.
+
+---
+
+## 🔁 Quick Comparison Table
+
+| Feature           | Bind Mount                 | Volume                     | Tmpfs Mount            |
+| ----------------- | ------------------------   | ------------------------   | ---------------------  |
+| Managed by Docker | ❌ No                      | ✅ Yes                    | ❌ No                  |
+| Performance       | Medium                     | High                       | Very High (in-memory)   |
+| Persistent        | ✅ Yes                     | ✅ Yes                    | ❌ No (temporary)       |
+| Flexibility       | ✅ Host path configurable  | ❌ Fixed by Docker        | ❌ RAM-only             |
+| Use case          | Dev mount, configs         | Databases, logs, backups   | Cache, sensitive data   |
+
