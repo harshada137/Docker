@@ -1,0 +1,23 @@
+## MYSQL DOCKER FILE ##
+
+1. sudo su
+2. nano mysqlDockerfile
+3. 
+	[
+	FROM mysql
+	MAINTAINER harsh
+	ENV MYSQL_ROOT_PASSWORD Pass@123
+	ENV MYSQL_DATABASE facebook
+	EXPPOSE 3306
+	CMD ["mysqld"]
+	
+	]
+4. docker build -f mysqlDockerfile -t mydbimg .
+5. docker image ls
+6. docker run -d --name mysqlcont mydbimg [create container]
+7. docker exec -it mysqlcont /bin/bash [ Go inside Container]
+8. mysql -u root -p 
+9. enter password [mension in docker file]
+** you must enter into database **
+10. show databases [facebook database must be there]
+
