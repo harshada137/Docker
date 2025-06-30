@@ -15,6 +15,7 @@ DAY 10 :-
 5. ls 
 6. docker build -t mynginx . [-t = tag, mynginx = new image name, . = current directory]
 7. docker run -d --name my-cont -p 80:80 mynginx [creating container from image]
+8. docker container ls -a [new container must be created]
 
 ** Container is created now you can execute container and perform in it as normal container **
 ** this is normal nginx image created from dockerfile ** 
