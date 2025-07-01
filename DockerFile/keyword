@@ -1,0 +1,54 @@
+
+**1. FROM**
+Sets the base image. It must be the first instruction (except for optional ARGs).
+*Example:* `FROM ubuntu:20.04`
+
+**2. LABEL**
+Adds metadata.
+*Example:* `LABEL version="1.0"`
+
+**3. ENV**
+Sets environment variables.
+*Example:* `ENV PATH="/app/bin:$PATH"`
+
+**4. WORKDIR**
+Sets the working directory for subsequent commands.
+*Example:* `WORKDIR /app`
+
+**5. COPY**
+Copies files from host to container.
+*Example:* `COPY . /app`
+
+**6. ADD**
+Like COPY, but supports remote URLs and auto-extracts archives.
+
+**7. RUN**
+Executes commands during image build.
+*Example:* `RUN apt-get update && apt-get install -y nginx`
+
+**8. CMD**
+Sets default command to run when the container starts.
+*Example:* `CMD ["nginx", "-g", "daemon off;"]`
+
+**9. ENTRYPOINT**
+Sets the main command that cannot be overridden easily.
+
+**10. EXPOSE**
+Documents the port the app uses (does not publish it).
+
+**11. ARG**
+Defines build-time variables.
+*Example:* `ARG version=1.0`
+
+**12. VOLUME**
+Creates a mount point for persistent data.
+
+**13. USER**
+Sets the user to run the image as.
+
+**14. HEALTHCHECK**
+Defines how Docker should check if the container is healthy.
+
+**15. MAINTAINER**
+Indicates who built or maintains the image.
+
