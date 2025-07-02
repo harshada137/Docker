@@ -1,0 +1,37 @@
+## DOCKER FILE USING SHELL SCRIPT ##
+
+1. sudo su
+2. nano myfile.sh
+
+	[
+	#!/bin/bash
+	mysql -u root -pPass@123 << EOF
+	create database insta;
+	use insta;
+	create table user(id int, name varchar(100));
+	insert into user values(101, "Fortune"), (102, "Cloud");
+	EOF
+	]
+
+3. nano mysqlDockerfile
+ 	[
+	FROM MySQL
+	ENV MYSQL_ROOT_PASSWORD Pass@123
+	COPY myfile.sh /docker-entrypoint-initdb.d/myfile.sh
+	RUN chmod +x /docker-entrypoint-initdb.d/myfile.sh
+	EXPOSE 3306
+	CMD ["mysqld"]
+	]
+4. docker build -f mysqlDockerfile -t mydbimg . 
+5. docker image ls
+6. docker run -d -p 3306 --name mydb mydbimg 
+7. docker ps docker exec -it mydb /bin/bash
+**Inside Container**
+8. MySQL -u root -p
+-- Enter Password
+9. show databases
+10. use insta
+11. show table
+12. select * from user
+
+
