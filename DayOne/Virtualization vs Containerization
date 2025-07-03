@@ -1,0 +1,26 @@
+🧱 Virtualization
+Definition: Virtualization uses a hypervisor to run multiple virtual machines (VMs) on a single physical machine.
+
+Each VM has:
+
+Its own OS (can be different OSs)
+
+Its own kernel
+
+Full set of system libraries and dependencies
+
+Examples: VMware, VirtualBox, Hyper-V
+
+✅ Pros:
+Supports multiple OS types (Windows, Linux, etc.)
+
+Strong isolation between VMs
+
+Useful for legacy apps
+
+❌ Cons:
+Heavyweight (uses more RAM, CPU, storage)
+
+Slower boot time
+
+Duplicated OS across VMs increases size
