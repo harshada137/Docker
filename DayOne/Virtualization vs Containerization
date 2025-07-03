@@ -2,25 +2,53 @@
 Definition: Virtualization uses a hypervisor to run multiple virtual machines (VMs) on a single physical machine.
 
 Each VM has:
-
 Its own OS (can be different OSs)
-
 Its own kernel
-
 Full set of system libraries and dependencies
-
 Examples: VMware, VirtualBox, Hyper-V
 
 ✅ Pros:
 Supports multiple OS types (Windows, Linux, etc.)
-
 Strong isolation between VMs
-
 Useful for legacy apps
 
 ❌ Cons:
 Heavyweight (uses more RAM, CPU, storage)
-
 Slower boot time
-
 Duplicated OS across VMs increases size
+
+📦 Containerization
+Definition: Containerization uses a container engine like Docker to run isolated applications using the same OS kernel.
+Each container shares:
+Host OS kernel
+But runs its own app with separate libraries and dependencies
+Examples: Docker, Podman, Kubernetes (for orchestration)
+
+✅ Pros:
+Lightweight (no OS duplication)
+Faster startup time
+Easier to scale and move across environments (portability)
+Ideal for microservices
+
+❌ Cons:
+Shares host OS, so less isolation than VMs
+May not be ideal for apps needing different OS
+
+
+🔍 Quick Comparison Table
+
+| Feature     | Virtualization        | Containerization      |
+| ----------- | --------------------- | --------------------- |
+| OS          | Each VM has its own   | Shared host OS        |
+| Size        | Large                 | Lightweight           |
+| Boot Time   | Slow                  | Fast                  |
+| Isolation   | Strong                | Moderate              |
+| Portability | Less portable         | Highly portable       |
+| Use Case    | Multi-OS apps, legacy | Microservices, DevOps |
+
+
+
+
+
+
+
