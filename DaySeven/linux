@@ -1,0 +1,11 @@
+ 1  yum update
+ 2  yum install docker -y
+ 3  service docker start
+ 4  systemctl enable docker
+ 5  service docker status
+ 6  docker search mysql
+ 7  docker run -d --name db-cont -e MYSQL_ROOT_PASSWORD=pass@123 -e MYSQL_DATABASE=mydb mysql
+ 8  docker image ls
+ 9  docker container ls
+ 10  docker exec -it db-cont /bin/bash
+ 11  history
