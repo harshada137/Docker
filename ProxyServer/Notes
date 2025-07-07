@@ -4,3 +4,55 @@ In Docker, a proxy server is not a built-in Docker component but often refers to
 🔹 Basic Reverse Proxy Server Using Nginx in Docker
 A reverse proxy server is an intermediary server that receives client requests and forwards them to appropriate backend services. In a Docker-based architecture, Nginx is commonly used as a lightweight and high-performance reverse proxy server.
 
+🔸 Purpose
+- The main purpose of setting up a reverse proxy with Nginx in Docker is to:
+- Expose a single entry point (usually port 80 or 443) to clients
+- Route incoming requests to the appropriate Docker containers based on the URL path or hostname
+- Simplify service management and enable seamless scaling
+
+🔸 Nginx Configuration: location Block
+In Nginx, the location block is used within the server block to match specific request patterns and apply rules, such as forwarding (proxying) the request to a backend service.
+
+Example:
+nginx
+
+server {
+    listen 80;
+    server_name localhost;
+
+    location /app1/ {
+        proxy_pass http://app1:3000/;
+    }
+
+    location /app2/ {
+        proxy_pass http://app2:5000/;
+    }
+}
+
+- /app1/: Routes traffic to a backend service named app1 running on port 3000
+- /app2/: Routes traffic to another service app2 on port 5000
+- proxy_pass: Directive that forwards requests to the specified URL or container
+ 
+🔸 Docker Integration
+- When used inside a docker-compose setup:
+- Nginx and backend services (e.g., app1, app2) are defined as individual services
+- Docker Compose automatically connects these services via a shared internal network
+- Service names (e.g., app1) can be used as hostnames in proxy_pass
+
+
+
+| Feature                     | Benefit                                                   |
+| --------------------------- | --------------------------------------------------------- |
+| Centralized traffic control | All requests go through a single point                    |
+| Path-based routing          | Easy to manage multiple services under one domain         |
+| Container isolation         | Backend services remain isolated but accessible via proxy |
+| Scalability                 | Services can be scaled independently                      |
+
+
+🔸 Common Use Cases
+- Hosting multiple web apps behind a single domain (e.g., /app1, /app2)
+- SSL termination and load balancing
+- Internal routing within microservices architecture
+
+
+
