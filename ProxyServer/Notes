@@ -1,0 +1,6 @@
+What Is Proxy Server ?
+In Docker, a proxy server is not a built-in Docker component but often refers to a networking setup where a proxy (like Nginx, HAProxy, or a forward proxy) is used in combination with Docker containers to manage traffic between the client and containerized services.
+
+🔹 Basic Reverse Proxy Server Using Nginx in Docker
+A reverse proxy server is an intermediary server that receives client requests and forwards them to appropriate backend services. In a Docker-based architecture, Nginx is commonly used as a lightweight and high-performance reverse proxy server.
+
