@@ -1,0 +1,19 @@
+Creating Page Inside Container
+
+    1  yum update
+    2  yum install docker -y
+    3  systemctl enable docker
+    5  service docker start
+    6  service docker status
+    7  docker image ls
+    8  docker container ls
+    9  docker container ls -a
+   10  docker rm c84cdaf1872c 6b3692530c17
+   11  docker container ls -a
+   12  docker run -d --name first-cont -p 80:80 nginx
+   13  docker image ls
+   14  docker container ls -a
+   15  docker exec -it first-cont /bin/bash
+   16  docker image ls
+   17  docker container ls
+   33  history
