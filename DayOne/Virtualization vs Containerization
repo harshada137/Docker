@@ -38,15 +38,31 @@ Each container shares:
 
 🔍 Quick Comparison Table
 
-| Feature     | Virtualization        | Containerization      |
-| ----------- | --------------------- | --------------------- |
-| OS          | Each VM has its own   | Shared host OS        |
-| Size        | Large                 | Lightweight           |
-| Boot Time   | Slow                  | Fast                  |
-| Isolation   | Strong                | Moderate              |
-| Portability | Less portable         | Highly portable       |
-| Use Case    | Multi-OS apps, legacy | Microservices, DevOps |
+| Feature        | Virtualization                 | Containerization                           |
+| -------------- | ------------------------------ | ------------------------------------------ |
+| OS Support     | Each VM has full OS            | Shares host OS kernel                      |
+| Boot Time      | Minutes (full OS boot)         | Seconds (start container)                  |
+| Performance    | Slower (due to OS overhead)    | Faster (lightweight)                       |
+| Resource Usage | High (more CPU, RAM)           | Low                                        |
+| Portability    | Medium (depends on hypervisor) | High (runs anywhere with container engine) |
+| Use Cases      | Legacy apps, multi-OS setups   | Microservices, CI/CD pipelines             |
+| Isolation      | Strong (hardware-level)        | Process-level (namespaces, cgroups)        |
+| Security       | High (full OS isolation)       | Medium (depends on kernel security)        |
+| Storage        | Large (full OS images)         | Small (container images \~MBs)             |
+| Tools          | VMware, VirtualBox, KVM        | Docker, Kubernetes, Podman                 |
 
+
+
+
+🔹 When to Use What?
+
+| Use Case                      | Best Choice      |
+| ----------------------------- | ---------------- |
+| Need to run multiple OS types | Virtualization   |
+| Microservices architecture    | Containerization |
+| Heavy legacy applications     | Virtualization   |
+| CI/CD pipelines and DevOps    | Containerization |
+| Isolated test environments    | Both can work    |
 
 
 
