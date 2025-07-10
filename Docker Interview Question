@@ -1,0 +1,242 @@
+
+✅ Beginner-Level Docker Interview Questions (Theory)
+
+
+---
+
+🔹 1. What is Docker and why is it used?
+
+Answer:
+Docker is a containerization platform that packages applications and their dependencies into isolated containers. It ensures consistency across development, testing, and production environments.
+
+
+---
+
+🔹 2. What is the difference between a container and a virtual machine (VM)?
+
+Answer:
+
+Containers share the host OS kernel and are lightweight.
+
+VMs run a full OS on top of a hypervisor, making them heavier and slower.
+
+Containers start faster and use fewer resources than VMs.
+
+
+
+---
+
+🔹 3. What is Docker Hub?
+
+Answer:
+Docker Hub is a cloud-based registry where users can find, store, and share Docker images. It includes both official and community images.
+
+
+---
+
+🔹 4. What are Docker Images and Containers?
+
+Answer:
+
+Image: A read-only template used to create containers. It includes application code, runtime, libraries, etc.
+
+Container: A running instance of an image.
+
+
+
+---
+
+🔹 5. What is a Dockerfile?
+
+Answer:
+A Dockerfile is a text file containing instructions to build a Docker image. It automates the process of creating images using commands like FROM, COPY, RUN, CMD, etc.
+
+
+---
+
+🔹 6. What is the difference between CMD and ENTRYPOINT in Dockerfile?
+
+Answer:
+
+CMD provides default arguments for the container when it starts.
+
+ENTRYPOINT sets the main command to run.
+
+CMD can be overridden, but ENTRYPOINT is executed every time.
+
+
+
+---
+
+🔹 7. What is the lifecycle of a Docker container?
+
+Answer:
+
+1. Create – Using docker create
+
+
+2. Start – Using docker start
+
+
+3. Run – Using docker run (create + start)
+
+
+4. Pause/Unpause
+
+
+5. Stop/Restart/Kill
+
+
+6. Remove – Using docker rm
+
+
+
+
+---
+
+⚙️ Intermediate-Level Docker Interview Questions (Theory)
+
+
+---
+
+🔹 8. What is the difference between COPY and ADD in Dockerfile?
+
+Answer:
+
+COPY is used to copy files and folders from the host to the image.
+
+ADD can do everything COPY does, but also supports URLs and extracting compressed files.
+
+
+
+---
+
+🔹 9. What are Docker volumes and bind mounts?
+
+Answer:
+
+Volumes: Managed by Docker, stored under /var/lib/docker/volumes, best for persistent data.
+
+Bind Mounts: Directly map a host file/directory into a container.
+
+
+
+---
+
+🔹 10. What is Docker Compose and why is it used?
+
+Answer:
+Docker Compose is a tool to define and manage multi-container Docker applications using a YAML file (docker-compose.yml). It simplifies running related containers together.
+
+
+---
+
+🔹 11. What is the difference between a base image and a child image?
+
+Answer:
+
+Base image: The starting point for any Docker image, like ubuntu, alpine.
+
+Child image: Built on top of a base image using additional Dockerfile instructions.
+
+
+
+---
+
+🔹 12. How does Docker handle networking?
+
+Answer:
+Docker uses virtual networks to connect containers. By default, it creates:
+
+bridge (default),
+
+host (shares host’s network),
+
+none (no network), and you can also create custom networks.
+
+
+
+---
+
+🔹 13. What is a multi-stage build in Docker?
+
+Answer:
+Multi-stage builds allow you to use multiple FROM statements in a Dockerfile to separate the build and runtime environments, which helps reduce image size and improve security.
+
+
+---
+
+🚀 Advanced-Level Docker Interview Questions (Theory)
+
+
+---
+
+🔹 14. What are namespaces and cgroups in Docker?
+
+Answer:
+
+Namespaces provide isolation (e.g., PID, network, mount) for containers.
+
+cgroups (control groups) limit and isolate resource usage like CPU, memory.
+
+
+
+---
+
+🔹 15. How does Docker ensure container isolation?
+
+Answer:
+Docker uses kernel features like namespaces (for isolation) and cgroups (for resource limits) to keep containers separate from each other and from the host.
+
+
+---
+
+🔹 16. What is the difference between Docker Swarm and Kubernetes?
+
+Answer:
+
+Docker Swarm: Native Docker container orchestration tool, simpler.
+
+Kubernetes: More powerful, industry-standard for orchestration with more features, but more complex.
+
+
+
+---
+
+🔹 17. How do you secure Docker containers?
+
+Answer:
+
+Use minimal base images
+
+Run containers as non-root
+
+Limit container capabilities
+
+Use signed images (Docker Content Trust)
+
+Use firewalls and Docker network policies
+
+
+
+---
+
+🔹 18. What is the difference between docker save and docker export?
+
+Answer:
+
+docker save: Saves an image and its layers into a tar file.
+
+docker export: Exports a container’s filesystem as a tar file (without metadata/layers).
+
+
+
+---
+
+🔹 19. What is the difference between docker exec and docker attach?
+
+Answer:
+
+docker exec: Runs a command inside a running container (e.g., start a shell).
+
+docker attach: Attaches your terminal to the container’s main process (like logs or input).
