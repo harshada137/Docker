@@ -1,0 +1,20 @@
+### 🔹 **Top-Level Keywords**
+
+1. **`version`** – Specifies the version of the Compose file format (e.g., `"3"`).
+2. **`services`** – Main section where you define each container.
+3. **`volumes`** – Used to define named volumes for persistent data.
+4. **`networks`** – Used to define custom Docker networks.
+
+
+### 🔹 **Service-Level Keywords (inside each service)**
+
+1. **`image`** – Specifies the Docker image to use (e.g., `nginx:latest`).
+2. **`build`** – Allows building a Docker image from a Dockerfile.
+3. **`ports`** – Maps ports from host to container in `HOST:CONTAINER` format.
+4. **`volumes`** – Mounts files/folders into the container (`LOCAL_PATH:CONTAINER_PATH`).
+5. **`environment`** – Sets environment variables in the container.
+6. **`depends_on`** – Defines the startup order of containers.
+7. **`command`** – Overrides the default command of the container.
+8. **`restart`** – Defines container restart policy (`no`, `always`, `on-failure`).
+9. **`container_name`** – Sets a custom name for the container.
+10. **`networks`** – Connects the service to one or more Docker networks.
