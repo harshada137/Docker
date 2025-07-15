@@ -1,0 +1,8 @@
+services:
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: Pass@123
+      MYSQL_DATABASE: mydb
+    ports:
+     - 3306:3306
