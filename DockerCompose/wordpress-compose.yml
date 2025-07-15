@@ -1,0 +1,19 @@
+services:
+  mydb:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: Pass@123
+      MYSQL_DATABASE: wordpressdb
+    ports:
+     - 3306
+  mywordpress:
+    image: wordpress
+    ports:
+     - 80:80
+    environment:
+      WORDPRESS_DB_HOST: mydb
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: Pass@123
+      WORDPRESS_DB_NAME: wordpressdb
+    depends_on:
+     - mydb
