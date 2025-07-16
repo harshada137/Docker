@@ -1,0 +1,60 @@
+nginx as a proxy-server
+1. docker run -d --name web1 nginx
+2. docker run -d --name web2 nginx
+3. docker run -d --name proxy-server -p 80:80 nginx
+4. docker container ls
+ 
+5. docker exec -it web1 /bin/bash
+   1. cd usr/share/nginx/html/
+   2. ls
+   3. rm index.html
+   4. apt update
+   5. apt install nano
+   6. nano index.html [web-one.html] 
+   6. curl localhost
+   7. exit
+ 
+6. docker exec -it cont2 /bin/bash
+   1. cd usr/share/nginx/html/
+   2. ls
+   3. rm index.html
+   4. apt update
+   5. apt install nano
+   6. nano index.html 
+   6  curl localhost
+   7  exit
+ 
+7. docker exec -it proxy-server /bin/bash
+   1. cd /etc/nginx/
+   2. ls
+   3. apt update
+   4. apt install nano
+   5. nano nginx.conf
+ 	[
+	  upstream webserver {
+	  server web1:80;
+          server web2:80;
+          }
+	]
+
+
+   6. ls
+   7. cd conf.d/
+   8. ls
+   9. nano default.conf
+ 	[
+	 location/{
+ 	    proxy_pass http://webserver;
+	    root /usrr/share/nginx/html;
+	    index index.html index.htm;
+	 }
+	]
+   10. service nginx reload
+   11. history
+   13. exit
+ 
+8. docker network create mynetwork
+9. docker network connect mynetwork web1
+10. docker network connect mynetwork web2
+11. docker network connect mynetwork proxy-server
+ 
