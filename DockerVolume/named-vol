@@ -1,0 +1,20 @@
+1  systemctl docker status
+    2  systemctl status docker
+    3  docker volume create mydata
+    4  volume ls
+    5  docker volume ls
+    7  docker run -d --name new-cont -p 80:80 -v mydata:/usr/share/nginx/html nginx
+    8  docker image ls
+    9  docker container ls
+    11  docker exec -it new-cont /bin/bash
+	  1  cd usr/share/nginx/html/
+    	  2  ls
+  	  3  rm index.html
+  	  5  apt update
+          6  apt install nano
+    	  7 nano index.html
+    	  8  history
+    12  history
+
+
+
